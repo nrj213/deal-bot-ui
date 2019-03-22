@@ -1,0 +1,11 @@
+<div class="search-wrapper">
+  <div class="form-group">
+    <input type="text" class="form-control" id="keyword" placeholder="Enter keywords here..." [(ngModel)]="keywords">
+  </div>
+  <button type="submit" class="btn btn-success mr-2" (click)="search()">Search</button>
+  <button class="btn btn-light">Clear</button>
+</div>
+
+<div class="search-results-wrapper">
+  <app-search-result [searchResults] = 'searchResults'></app-search-result>
+</div>

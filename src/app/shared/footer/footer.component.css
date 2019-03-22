@@ -1,0 +1,16 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: darkgray;
+    padding: 0;
+    z-index: 5;
+}
+
+.footer ul li a {
+    padding: 0.4rem;
+}
+
+.footer .copyright {
+    padding: 6px 0;
+}

@@ -1,0 +1,9 @@
+.search-wrapper input, .search-wrapper input::placeholder, .search-wrapper input::-webkit-input-placeholder {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    height: auto;
+}
+
+.search-results-wrapper {
+    margin: 2% 0;
+}
