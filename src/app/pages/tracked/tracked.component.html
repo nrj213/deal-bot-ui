@@ -1,3 +1,19 @@
-<p>
-  tracked works!
-</p>
+<div class="tracked-items-wrapper">
+  <app-spinner></app-spinner>
+  <div class="card my-3" *ngFor="let item of trackedItems">
+    <div class="card-body py-2">
+      <div class="row">
+        <div class="col-4 align-self-center name">
+          <a href="{{item.link}}" target="_blank">{{item.name}}</a>
+        </div>
+        <div class="col align-self-center">Original Price: {{item.currencyFormat}}{{item.price}}</div>
+        <div class="col align-self-center">Now: {{item.currencyFormat}}{{item.lowestPrice}}
+          ({{calculateOff(item.price, item.lowestPrice)}})</div>
+        <div class="col align-self-center">Rating: {{item.rating}}</div>
+        <div class="col align-self-center">
+          <button type="button" class="btn btn-info px-4 py-2 track-btn" (click)="untrack(item._id)">Untrack</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

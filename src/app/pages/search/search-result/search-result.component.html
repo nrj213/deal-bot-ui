@@ -1,3 +1,14 @@
-<ul>
-  <li *ngFor="let item of searchResults">{{item.name}}</li>
-</ul>
+<div class="card my-3" *ngFor="let item of searchResults">
+  <div class="card-body py-2">
+    <div class="row">
+      <div class="col-7 align-self-center name">
+        <a href="{{item.link}}" target="_blank">{{item.name}}</a>
+      </div>
+      <div class="col align-self-center">{{item.price}}</div>
+      <div class="col align-self-center">Rating: {{item.rating}}</div>
+      <div class="col align-self-center">
+        <button type="button" class="btn btn-info px-4 py-2 track-btn" (click)="track(item)">Track</button>
+      </div>
+    </div>
+  </div>
+</div>

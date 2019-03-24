@@ -25,6 +25,7 @@
             "styles": [
               "src/styles.css",
               "src/assets/scss/material-dashboard.scss",
+              "src/assets/scss/toaster.scss",
               "src/assets/css/demo.css"
             ],
             "scripts": [
