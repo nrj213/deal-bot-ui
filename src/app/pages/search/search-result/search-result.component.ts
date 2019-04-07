@@ -17,8 +17,7 @@ export class SearchResultComponent implements OnInit {
   
   role: object = Role;
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   track(item) {
     this.itemService.save(item).subscribe((data) => {

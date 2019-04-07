@@ -30,13 +30,10 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.currentUser.subscribe((response) => {
-      if(response) {
+      if(response.role) {
         this.role = response.role.toString();
         this.menuItems = ROUTES.filter(menuItem => menuItem);
       }
-    }, (error) => {
-      this.role = "Unknown"
-      this.menuItems = ROUTES.filter(menuItem => menuItem);
     });
   }
   isMobileMenu() {

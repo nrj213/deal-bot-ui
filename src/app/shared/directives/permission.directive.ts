@@ -21,13 +21,11 @@ export class PermissionDirective implements OnInit {
   @Input() set hasPermission(roles: string[]) {
     this.roles = roles;
     this.currentUser = this.dataService.currentUserValue;
-    
-    this.checkPermission();
+    this.renderView();
   }
 
   checkPermission() {
     let hasPermission: boolean = false;
-    
     if(this.roles && this.currentUser && this.currentUser.role) {
       for(let role of this.roles) {
         if(this.currentUser.role.indexOf(role) !== -1){
@@ -36,11 +34,15 @@ export class PermissionDirective implements OnInit {
         }
       }
     }
-
-    if(hasPermission) {
+    return hasPermission; 
+  }
+  
+  renderView() {
+    if(this.checkPermission()) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainer.clear();
     }
   }
+
 }
