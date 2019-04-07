@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { PermissionDirective } from './directives/permission.directive';
 
 @NgModule({
   imports: [
@@ -18,13 +19,15 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    PermissionDirective
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    PermissionDirective
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { Role } from 'src/app/models/role.model';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -6,19 +8,13 @@ declare interface RouteInfo {
   title: string;
   icon: string;
   class: string;
+  target: string[]
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/about', title: 'About', icon: 'home', class: '' },
-  { path: '/search', title: 'Search Items', icon: 'search', class: '' },
-  { path: '/tracked-items', title: 'Tracked Items', icon: 'assignment', class: '' }
-  // { path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
-  // { path: '/user-profile', title: 'User Profile', icon: 'person', class: '' },
-  // { path: '/table-list', title: 'Table List', icon: 'content_paste', class: '' },
-  // { path: '/typography', title: 'Typography', icon: 'library_books', class: '' },
-  // { path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
-  // { path: '/maps', title: 'Maps', icon: 'location_on', class: '' },
-  // { path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },
-  // { path: '/upgrade', title: 'Upgrade to PRO', icon: 'unarchive', class: 'active-pro' },
+  { path: '/home', title: 'Home', icon: 'home', class: '', target: [Role.Basic, Role.Moderate, Role.Admin] },
+  { path: '/about', title: 'About', icon: 'map', class: '', target: [Role.Basic, Role.Moderate, Role.Admin] },
+  { path: '/search', title: 'Search Items', icon: 'search', class: '', target: [Role.Moderate, Role.Admin] },
+  { path: '/tracked-items', title: 'Tracked Items', icon: 'assignment', class: '', target: [Role.Admin] }
 ];
 
 @Component({
@@ -28,11 +24,20 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  role: string;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.dataService.currentUser.subscribe((response) => {
+      if(response) {
+        this.role = response.role.toString();
+        this.menuItems = ROUTES.filter(menuItem => menuItem);
+      }
+    }, (error) => {
+      this.role = "Unknown"
+      this.menuItems = ROUTES.filter(menuItem => menuItem);
+    });
   }
   isMobileMenu() {
     if ($(window).width() > 991) {

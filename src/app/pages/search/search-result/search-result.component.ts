@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
 import { ToasterService } from 'angular2-toaster';
 import { AppConstants } from '../../../services/constants';
+import { Role } from 'src/app/models/role.model';
 
 @Component({
   selector: 'app-search-result',
@@ -13,6 +14,8 @@ export class SearchResultComponent implements OnInit {
   constructor(private itemService: ItemService, private toasterService: ToasterService) { }
 
   @Input() searchResults: any;
+  
+  role: object = Role;
 
   ngOnInit() {
   }

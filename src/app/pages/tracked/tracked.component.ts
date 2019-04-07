@@ -23,7 +23,6 @@ export class TrackedComponent implements OnInit {
     this.data.changeSpinnerFlag(true);
 
     this.itemService.get().subscribe((data) => {
-      console.log(data);
       this.trackedItems = data;
       this.data.changeSpinnerFlag(false);
     }, (err) => {

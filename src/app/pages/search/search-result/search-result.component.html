@@ -7,7 +7,7 @@
       <div class="col align-self-center">{{item.price}}</div>
       <div class="col align-self-center">Rating: {{item.rating}}</div>
       <div class="col align-self-center">
-        <button type="button" class="btn btn-info px-4 py-2 track-btn" (click)="track(item)">Track</button>
+        <button type="button" class="btn btn-info px-4 py-2 track-btn" (click)="track(item)" *hasPermission="[role.Admin]">Track</button>
       </div>
     </div>
   </div>

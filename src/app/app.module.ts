@@ -16,6 +16,9 @@ import { ItemService } from './services/item.service';
 import { FlipkartService } from './services/flipkart.service';
 import { ToasterService } from 'angular2-toaster';
 import { DataService } from './services/data.service';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ErrorComponent } from './pages/auth/error/error.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { DataService } from './services/data.service';
     AboutComponent,
     SearchComponent,
     TrackedComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    LoginComponent,
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
